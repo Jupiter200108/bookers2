@@ -1,8 +1,4 @@
 class BooksController < ApplicationController
-  
-  before_action :authenticate_user!
-
-  before_action :ensure_correct_user, only:[:edit]
 
   def index
     @book = Book.new
@@ -55,6 +51,4 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
-  
 end

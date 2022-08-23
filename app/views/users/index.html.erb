@@ -1,13 +1,6 @@
 <main>
   <p id="notice"><%= notice %></p>
   <div class='container px-5 px-sm-0'>
-    <% if book.errors.any? %>
-    <h3><%= book.errors.count %>errors prohibited this obj from being saved:</h3>
-    <ul>
-      <% book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
     <div class='row'>
 
       <%= render 'books/list', book: @book , user: @user%>
@@ -25,7 +18,7 @@
           <tbody>
             <% @users.each do |user| %>
             <tr>
-              <td><%= image_tag @user.get_profile_image(100,100) %></td>
+              <td> <%= image_tag @user.get_profile_image(100,100) %></td>
               <td><%= user.name %></td>
               <td><%= link_to 'Show', user_path(user) %></td>
             </tr>
