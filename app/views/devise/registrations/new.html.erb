@@ -1,5 +1,5 @@
 <main>
-  <p id="notice"></p>
+  <p id="notice"><%= notice %></p>
   <div class='container'>
     <div class='row'>
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
@@ -9,8 +9,8 @@
       <%= render "devise/shared/error_messages", resource: resource %>
   
       <div class="field">
-        <%= f.label :name %><br>
-        <%= f.text_field :name %>
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
       </div>
 
       <div class="field">

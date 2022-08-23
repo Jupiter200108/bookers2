@@ -23,7 +23,7 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li>
-              <%= link_to users_path, class: 'nav-link text-light' do %>
+              <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i>home
               <% end %>
             </li>
@@ -33,12 +33,12 @@
               <% end %>
             </li>
             <li>
-              <%= link_to books_path(current_user.id), class: 'nav-link text-light' do %>
-              <i class="fas fa-book-open"></i>bookers
+              <%= link_to books_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-book-open"></i>Books
               <% end %>
             </li>
             <li>
-              <%= link_to root_path(current_user.id), class: 'nav-link text-light' do %>
+              <%= link_to user_registration_path, method: :delete, class: 'nav-link text-light' do %>
               <i class="fas fa-sign-out-alt"></i>Log out
               <% end %>
             </li>
@@ -69,13 +69,13 @@
         </div>
       </nav>
     </header>
-    
+
     <%= yield %>
-  
+
     <footer>
       <div class='container mt-5'>
         <div class='row'>
-          <div class='mx-auto'> 
+          <div class='mx-auto'>
             <p>CopyRight Infratop.inc</p>
           </div>
         </div>

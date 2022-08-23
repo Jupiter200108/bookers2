@@ -1,26 +1,28 @@
 <div class='col-md-3'>
+  
   <h2>User info</h2>
   <table class='table'>
     <tr>
-      <img src="https://bookers-level2.herokuapp.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBN3lzQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--96e3526cc355df7f368eeb5240ddf31ddc253733/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdscGFRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--4a929dbc7794f3c4610ba9ba5402762ad9cd1a14/default-image.jpg" />
+       <%= image_tag user.get_profile_image(100,100) %>
     </tr>
     <tr>
       <th>name</th>
-      <th></th>
+      <th><%= user.name %></th>
     </tr>
     <tr>
 	    <th>introduction</th>
-	    <th></th>
+	    <th><%= user.introduction %></th>
     </tr>
   </table>
-　
+
   <div class='row'>
-    <a class="btn btn-outline-secondary btn-block edit_user_38719" href="/users/38719/edit">
+    <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block edit_user_id" do %>
      <i class="fas fa-user-cog"></i>
-    </a>
+    <% end %>
   </div>
+    
   <h2 class="mt-3">New book</h2>
-  <%= form_with model: @book do |f| %>
+  <%= form_with model: book do |f| %>
     <div class="form-group">
       <label for="book_title">Title</label><br>
       <%= f.text_field :title %>
